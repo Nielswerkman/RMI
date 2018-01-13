@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface IVoorraadBeheer extends Remote {
 
-    boolean ProductBestellen(Product product);
-
     List<Product> getProducten();
 
     int getProductVoorraad(Product product);
+
+    boolean updateProductVoorraad(Product product);
 
 }
