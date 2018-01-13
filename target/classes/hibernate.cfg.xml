@@ -12,7 +12,7 @@
         <!--Hibernate settings-->
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
-        <property name="connection.pool_size">100</property>
+        <property name="connection.pool_size">10</property>
 
         <!--Mappings-->
         <mapping class="Shared.Models.Mutatie"/>

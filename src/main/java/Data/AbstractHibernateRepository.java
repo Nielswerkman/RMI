@@ -13,7 +13,7 @@ public abstract class AbstractHibernateRepository<T extends Serializable> {
         this.myObject = myObject;
     }
 
-    public T findOne(long id) {
+    public T findOne(int id) {
         Session session = Database.SESSION.openSession();
 
         T entity = session.find(myObject, id);

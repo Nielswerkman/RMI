@@ -1,5 +1,7 @@
 import Data.Database;
+import Data.RMI.MutatieRMI;
 import Repository.HibernateProductRepository;
+import Shared.Interfaces.IMutatieBeheer;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -23,5 +25,13 @@ public class HibernateTest {
     public void testProductRepo(){
         productRepo = new HibernateProductRepository();
         productRepo.findAll();
+    }
+
+    @Test
+    public void testIMutatie(){
+
+        IMutatieBeheer mutatieBeheer = new MutatieRMI().getMutatieBeheer();
+
+        Assert.assertNotNull(mutatieBeheer);
     }
 }

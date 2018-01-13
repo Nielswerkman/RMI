@@ -19,13 +19,15 @@ import java.util.List;
 
 public class MutatieBeheer extends UnicastRemoteObject implements IMutatieBeheer {
 
-    private HibernateProductRepository productRepo = new HibernateProductRepository();
-    private HibernateMutatieRepository mutatieRepo = new HibernateMutatieRepository();
+    private HibernateProductRepository productRepo;
+    private HibernateMutatieRepository mutatieRepo;
 
     private IVoorraadBeheer voorraadBeheer;
 
     public MutatieBeheer() throws RemoteException {
         voorraadBeheer = new VoorraadRMI().getVoorraadBeheer();
+        mutatieRepo = new HibernateMutatieRepository();
+        productRepo = new HibernateProductRepository();
     }
 
     public List<Product> GetProductenOpDatum(Date datum) {
@@ -58,7 +60,11 @@ public class MutatieBeheer extends UnicastRemoteObject implements IMutatieBeheer
         Mutatie mutatie = new Mutatie(product, new Date(), reden, user);
         Product updatedProduct = productRepo.findOne(product.getId());
         updatedProduct.setAantal((updatedProduct.getAantal() - 1));
-        productRepo.update(updatedProduct);
+        try {
+            voorraadBeheer.updateProductVoorraad(updatedProduct);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
         return mutatieRepo.create(mutatie);
     }
 
