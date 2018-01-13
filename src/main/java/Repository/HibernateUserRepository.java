@@ -1,6 +1,7 @@
-package main.java.Repository;
+package Repository;
 
-import main.java.Data.AbstractHibernateRepository;
+
+import Data.AbstractHibernateRepository;
 
 public class HibernateUserRepository extends AbstractHibernateRepository {
 }

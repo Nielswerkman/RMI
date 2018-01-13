@@ -1,7 +1,9 @@
-package main.java.VoorraadBeheer;
+package VoorraadBeheer;
 
-import main.java.Shared.Interfaces.RemoteListener;
-import main.java.Shared.Interfaces.RemotePublisher;
+
+
+import Shared.Interfaces.RemoteListener;
+import Shared.Interfaces.RemotePublisher;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

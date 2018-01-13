@@ -15,7 +15,9 @@
         <property name="connection.pool_size">100</property>
 
         <!--Mappings-->
-        <!--<mapping class="sample.Models.Product"/>-->
+        <mapping class="Shared.Models.Mutatie"/>
+        <mapping class="Shared.Models.Product"/>
+        <mapping class="Shared.Models.User"/>
 
 
     </session-factory>

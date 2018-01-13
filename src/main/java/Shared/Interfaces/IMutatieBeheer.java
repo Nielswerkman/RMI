@@ -1,8 +1,8 @@
-package main.java.Shared.Interfaces;
+package Shared.Interfaces;
 
-import main.java.Shared.Models.Mutatie;
-import main.java.Shared.Models.Product;
-import main.java.Shared.Models.User;
+import Shared.Models.Mutatie;
+import Shared.Models.Product;
+import Shared.Models.User;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

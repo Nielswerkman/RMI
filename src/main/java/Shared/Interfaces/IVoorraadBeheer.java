@@ -1,6 +1,7 @@
-package main.java.Shared.Interfaces;
+package Shared.Interfaces;
 
-import main.java.Shared.Models.Product;
+
+import Shared.Models.Product;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

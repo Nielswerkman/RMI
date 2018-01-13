@@ -1,6 +1,6 @@
-package main.java.Data.RMI;
+package Data.RMI;
 
-import main.java.Shared.Interfaces.IVoorraadBestelBeheer;
+import Shared.Interfaces.IVoorraadBestelBeheer;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

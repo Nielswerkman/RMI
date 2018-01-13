@@ -1,4 +1,4 @@
-package main.java.BestellingBeheer;
+package BestellingBeheer;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;

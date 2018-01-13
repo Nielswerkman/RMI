@@ -1,10 +1,10 @@
-package main.java.BestellingBeheer;
+package BestellingBeheer;
 
-import main.java.Data.RMI.VoorraadRMI;
-import main.java.Repository.HibernateProductRepository;
-import main.java.Shared.Interfaces.IVoorraadBeheer;
-import main.java.Shared.Interfaces.IVoorraadBestelBeheer;
-import main.java.Shared.Models.Product;
+import Data.RMI.VoorraadRMI;
+import Repository.HibernateProductRepository;
+import Shared.Interfaces.IVoorraadBeheer;
+import Shared.Interfaces.IVoorraadBestelBeheer;
+import Shared.Models.Product;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

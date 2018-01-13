@@ -1,4 +1,4 @@
-package main.java.MutatieBeheer;
+package MutatieBeheer;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

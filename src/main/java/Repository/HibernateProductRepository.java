@@ -1,7 +1,8 @@
-package main.java.Repository;
+package Repository;
 
-import main.java.Data.AbstractHibernateRepository;
-import main.java.Shared.Models.Product;
+
+import Data.AbstractHibernateRepository;
+import Shared.Models.Product;
 
 public class HibernateProductRepository extends AbstractHibernateRepository<Product> {
 }

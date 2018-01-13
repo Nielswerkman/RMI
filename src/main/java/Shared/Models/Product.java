@@ -1,4 +1,4 @@
-package main.java.Shared.Models;
+package Shared.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;

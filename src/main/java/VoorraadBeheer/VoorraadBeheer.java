@@ -1,8 +1,9 @@
-package main.java.VoorraadBeheer;
+package VoorraadBeheer;
 
-import main.java.Repository.HibernateProductRepository;
-import main.java.Shared.Interfaces.IVoorraadBeheer;
-import main.java.Shared.Models.Product;
+
+import Repository.HibernateProductRepository;
+import Shared.Interfaces.IVoorraadBeheer;
+import Shared.Models.Product;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

@@ -1,13 +1,15 @@
-package main.java.MutatieBeheer;
+package MutatieBeheer;
 
-import main.java.Data.RMI.VoorraadRMI;
-import main.java.Repository.HibernateMutatieRepository;
-import main.java.Repository.HibernateProductRepository;
-import main.java.Shared.Interfaces.IMutatieBeheer;
-import main.java.Shared.Interfaces.IVoorraadBeheer;
-import main.java.Shared.Models.Mutatie;
-import main.java.Shared.Models.Product;
-import main.java.Shared.Models.User;
+
+
+import Data.RMI.VoorraadRMI;
+import Repository.HibernateMutatieRepository;
+import Repository.HibernateProductRepository;
+import Shared.Interfaces.IMutatieBeheer;
+import Shared.Interfaces.IVoorraadBeheer;
+import Shared.Models.Mutatie;
+import Shared.Models.Product;
+import Shared.Models.User;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

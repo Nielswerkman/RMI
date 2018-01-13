@@ -1,4 +1,4 @@
-package main.java.VoorraadBeheer;
+package VoorraadBeheer;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
