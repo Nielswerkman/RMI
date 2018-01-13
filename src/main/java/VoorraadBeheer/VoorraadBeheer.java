@@ -25,6 +25,8 @@ public class VoorraadBeheer extends UnicastRemoteObject implements IVoorraadBehe
     }
 
     public boolean updateProductVoorraad(Product product) {
-        return productRepo.update(product);
+        boolean result = productRepo.update(product);
+        VoorraadBeheerServer.voorraadNotificationPublisher.send();
+        return result;
     }
 }

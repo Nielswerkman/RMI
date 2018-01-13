@@ -12,7 +12,7 @@ public class VoorraadRMI {
 
     public VoorraadRMI() {
         try{
-            String rmi_registy = "rmi://localhost:6001/";
+            String rmi_registy = "rmi://localhost:6003/";
 
             Context namingContext = new InitialContext();
 

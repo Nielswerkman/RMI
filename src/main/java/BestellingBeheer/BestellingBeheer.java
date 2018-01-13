@@ -1,5 +1,6 @@
 package main.java.BestellingBeheer;
 
+import main.java.Data.RMI.VoorraadRMI;
 import main.java.Repository.HibernateProductRepository;
 import main.java.Shared.Interfaces.IVoorraadBeheer;
 import main.java.Shared.Interfaces.IVoorraadBestelBeheer;
@@ -12,13 +13,25 @@ public class BestellingBeheer extends UnicastRemoteObject implements IVoorraadBe
 
     private HibernateProductRepository productRepo = new HibernateProductRepository();
 
+    private IVoorraadBeheer voorraadBeheer;
+
     public BestellingBeheer() throws RemoteException{
+        voorraadBeheer = new VoorraadRMI().getVoorraadBeheer();
     }
 
     public boolean ProductBestellen(Product product, int aantalKeer) {
         Product current = productRepo.findOne(product.getId());
         current.setAantal((current.getCE() * aantalKeer));
-        return productRepo.update(current);
+
+        boolean result = false;
+
+        try {
+            result = voorraadBeheer.updateProductVoorraad(product);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
 
