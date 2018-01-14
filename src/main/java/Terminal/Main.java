@@ -1,13 +1,13 @@
 package Terminal;
 
 import Data.RMI.MutatieRMI;
+import Data.RMI.VoorraadBestelRMI;
 import Data.RMI.VoorraadRMI;
 import Repository.HibernateProductRepository;
-import Repository.HibernateUserRepository;
 import Shared.Interfaces.IMutatieBeheer;
 import Shared.Interfaces.IVoorraadBeheer;
+import Shared.Interfaces.IVoorraadBestelBeheer;
 import Shared.Models.Product;
-import Shared.Models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -28,13 +27,19 @@ public class Main extends Application {
 
     public static IMutatieBeheer mutatieBeheer;
     public static IVoorraadBeheer voorraadBeheer;
+    public static IVoorraadBestelBeheer voorraadBestelBeheer;
+    public static Controller c;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample.fxml"));
+        Parent root = loader.load();
+        primaryStage.setTitle("Terminal");
+        primaryStage.setScene(new Scene(root, 800, 800));
         primaryStage.show();
+        c = loader.getController();
+
     }
 
 
@@ -42,8 +47,11 @@ public class Main extends Application {
         try{
             mutatieBeheer = new MutatieRMI().getMutatieBeheer();
             voorraadBeheer = new VoorraadRMI().getVoorraadBeheer();
+            voorraadBestelBeheer = new VoorraadBestelRMI().getVoorraadBestelBeheer();
 
             voorraadNotificationListener = new VoorraadNotificationListener();
+
+            mijnVoorraadLijst = voorraadBeheer.getProducten();
 
         }catch (RemoteException ex){
             ex.printStackTrace();
@@ -53,13 +61,13 @@ public class Main extends Application {
 //        new HibernateUserRepository().create(u);
 //        productRepo.create(p);
 
-        User u = (User) new HibernateUserRepository().findAll().get(0);
-        Product p = (Product) productRepo.findAll().get(0);
-        try {
-            mutatieBeheer.AddMutatie(p, "Kapot", u);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+//        User u = (User) new HibernateUserRepository().findAll().get(0);
+//        Product p = (Product) productRepo.findAll().get(0);
+//        try {
+//            mutatieBeheer.AddMutatie(p, "Kapot", u);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//        }
 
         launch(args);
 

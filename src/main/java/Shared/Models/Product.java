@@ -29,6 +29,11 @@ public class Product implements Serializable{
     public Product() {
     }
 
+    @Override
+    public String toString() {
+        return "Naam: " + naam.toString() + "\t " + "Aantal: " + aantal + "\t " + "Datum: " + datum.toString();
+    }
+
     //region Getters & Setters
 
     public int getId() {

@@ -8,7 +8,7 @@ public class BestellingBeheerServer {
 
     public static void main(String[] args) throws RemoteException {
         Registry registry = LocateRegistry.createRegistry(6001);
-        registry.rebind("bestelbeheer", new BestellingBeheer());
+        registry.rebind("voorraadbestelbeheer", new BestellingBeheer());
         System.out.println("Bestelbeheer is running!");
     }
 }

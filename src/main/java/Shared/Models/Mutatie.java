@@ -17,6 +17,7 @@ public class Mutatie implements Serializable{
 
     private String reden;
 
+    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User creator;
 
     public Mutatie(Product product, Date datum, String reden, User creator) {
@@ -28,6 +29,11 @@ public class Mutatie implements Serializable{
 
     public Mutatie() {
     }
+
+    public String mutatieTableString(){
+        return product.getNaam() + " " + datum + " " + reden + " " + creator.getNaam();
+    }
+
 
     //region Getters & Setters
 

@@ -71,6 +71,13 @@ public class MutatieBeheer extends UnicastRemoteObject implements IMutatieBeheer
     public boolean SetNewProductDatum(Product product, Date datum) {
         Product updatedProduct = productRepo.findOne(product.getId());
         updatedProduct.setDatum(datum);
-        return productRepo.update(updatedProduct);
+
+        boolean result = false;
+        try {
+            result = voorraadBeheer.updateProductVoorraad(updatedProduct);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
