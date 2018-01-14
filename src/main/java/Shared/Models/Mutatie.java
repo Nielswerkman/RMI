@@ -34,6 +34,16 @@ public class Mutatie implements Serializable{
         return product.getNaam() + " " + datum + " " + reden + " " + creator.getNaam();
     }
 
+    @Override
+    public String toString() {
+        return "Mutatie{" +
+                "Id=" + Id +
+                ", product=" + product +
+                ", datum=" + datum +
+                ", reden='" + reden + '\'' +
+                ", creator=" + creator +
+                '}';
+    }
 
     //region Getters & Setters
 

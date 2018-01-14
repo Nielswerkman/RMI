@@ -8,6 +8,7 @@
         <property name="connection.url">jdbc:mysql://www.fontys-project.nl:3306/niels?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
         <property name="connection.username">Zien</property>
         <property name="connection.password">Habibke</property>
+        <property name="connection.release_mode">on_close</property>
 
         <!--Hibernate settings-->
         <property name="hbm2ddl.auto">update</property>

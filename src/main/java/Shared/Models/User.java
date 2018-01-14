@@ -25,6 +25,16 @@ public class User implements Serializable{
     public User() {
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", naam='" + naam + '\'' +
+                ", login='" + login + '\'' +
+                ", wachtwoord='" + wachtwoord + '\'' +
+                '}';
+    }
+
     //region Getters & Setters
 
     public int getId() {

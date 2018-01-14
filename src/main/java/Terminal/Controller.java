@@ -7,6 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.rmi.RemoteException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,7 +65,9 @@ public class Controller {
 
     @FXML
     protected void initialize() throws RemoteException{
-        defaultProductTableRefresh();
+        refresh();
+
+        userLabel.textProperty().setValue(user.getNaam());
     }
 
     private List<Product> productenOpDatum = new ArrayList<Product>();
@@ -73,7 +77,6 @@ public class Controller {
 
     public void refreshButtonClicked(){
         defaultProductTableRefresh();
-
     }
 
     public void loginButtonClicked(){
@@ -81,8 +84,7 @@ public class Controller {
     }
 
     public void vindProductButtonClicked(){
-        String date = vindProductPicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        Date d = new Date(date);
+        Date d = new Date();
         try {
             productenOpDatum = Main.mutatieBeheer.GetProductenOpDatum(d);
         } catch (RemoteException e) {
@@ -94,7 +96,6 @@ public class Controller {
 
     public void nieuweDatumButtonClicked(){
         System.out.println("New Date Clicked!");
-//        String date = nieuweDatumPicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Date d = new Date();
         try {
             Main.mutatieBeheer.SetNewProductDatum((Product) defaultProductTable.getSelectionModel().getSelectedItems().get(0), d);
@@ -130,7 +131,9 @@ public class Controller {
 
     public void updateVoorraadButtonClicked(){
         Product p = (Product) voorraadAanpassenTable.getSelectionModel().getSelectedItems().get(0);
-        p.setAantal(Integer.getInteger(voorraadAantalField.getText()));
+        String s = voorraadAantalField.getText();
+        p.setAantal(Integer.parseInt(s));
+        System.out.println(p.getNaam());
 
         try {
             Main.voorraadBeheer.updateProductVoorraad(p);
@@ -142,14 +145,16 @@ public class Controller {
     }
 
     public void vindMutatiesButtonClicked(){
-        String date = vindMutatiePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        Date d = new Date(date);
+
+        Date d = new Date();
+
 
         try {
-            Main.mutatieBeheer.GetMutatiesVanDatum(d);
+            mutatieLijst = Main.mutatieBeheer.GetMutatiesVanDatum(d);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+
         mutatiesTableRefresh();
 
     }
@@ -175,9 +180,9 @@ public class Controller {
     }
 
     private void refresh(){
+        defaultProductTableRefresh();
         voorraadAanpassenTableRefresh();
         mutatiesTableRefresh();
-        defaultProductTableRefresh();
         productenOpDatumTableRefresh();
     }
 

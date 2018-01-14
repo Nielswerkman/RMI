@@ -35,7 +35,7 @@ public class MutatieBeheer extends UnicastRemoteObject implements IMutatieBeheer
         List<Product> productenOpDatum = new ArrayList<Product>();
 
         for(Product p : allProducts){
-            if(p.getDatum() == datum){
+            if(p.getDatum().getDay() == datum.getDay()){
                 productenOpDatum.add(p);
             }
         }
@@ -48,7 +48,7 @@ public class MutatieBeheer extends UnicastRemoteObject implements IMutatieBeheer
         List<Mutatie> mutatiesVanDatum = new ArrayList<Mutatie>();
 
         for(Mutatie m : allMutaties){
-            if(m.getDatum() == datum){
+            if(m.getDatum().getDay() == datum.getDay()){
                 mutatiesVanDatum.add(m);
             }
         }

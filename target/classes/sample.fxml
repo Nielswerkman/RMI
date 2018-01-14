@@ -22,24 +22,16 @@
       <Pane prefHeight="800.0" prefWidth="1000.0">
          <children>
             <Button fx:id="vraagVoorraadOpButton" layoutX="29.0" layoutY="612.0" mnemonicParsing="false" onAction="#vraagVoorraadOpButtonClicked" prefHeight="25.0" prefWidth="125.0" text="Vraag voorraad op" />
-            <TextField fx:id="loginField" layoutX="93.0" layoutY="58.0" />
-            <TextField fx:id="wachtwoordField" layoutX="93.0" layoutY="83.0" />
             <Button fx:id="refreshButton" layoutX="258.0" layoutY="250.0" mnemonicParsing="false" onAction="#refreshButtonClicked" text="Refresh" />
             <Button fx:id="vindProductButton" layoutX="564.0" layoutY="250.0" mnemonicParsing="false" onAction="#vindProductButtonClicked" text="Vind producten" />
-            <DatePicker fx:id="vindProductPicker" layoutX="379.0" layoutY="250.0" />
-            <Label layoutX="14.0" layoutY="62.0" text="Login Naam:" />
-            <Label layoutX="14.0" layoutY="87.0" text="Wachtwoord:" />
             <Label layoutX="19.0" layoutY="14.0" text="User:" />
             <Label fx:id="userLabel" layoutX="52.0" layoutY="14.0" text="Niels" />
             <Button fx:id="muteerButton" layoutX="564.0" layoutY="310.0" mnemonicParsing="false" onAction="#muteerButtonClicked" prefHeight="25.0" prefWidth="67.0" text="Muteer" />
             <Label layoutX="376.0" layoutY="14.0" text="Producten op datum" />
             <Label layoutX="263.0" layoutY="401.0" text="Mutaties" />
-            <DatePicker fx:id="vindMutatiePicker" layoutX="268.0" layoutY="636.0" />
             <Button fx:id="vindMutatiesButton" layoutX="458.0" layoutY="636.0" mnemonicParsing="false" onAction="#vindMutatiesButtonClicked" text="Vind mutaties" />
-            <DatePicker fx:id="nieuweDatumPicker" layoutX="379.0" layoutY="281.0" />
             <Button fx:id="nieuweDatumButton" layoutX="564.0" layoutY="281.0" mnemonicParsing="false" onAction="#nieuweDatumButtonClicked" text="Nieuwe Datum" />
             <TextField fx:id="voorraadAantalField" layoutX="57.0" layoutY="648.0" prefHeight="25.0" prefWidth="67.0" />
-            <Button fx:id="loginButton" layoutX="105.0" layoutY="115.0" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="25.0" prefWidth="125.0" text="Login" />
             <Button fx:id="updateVoorraadButton" layoutX="29.0" layoutY="681.0" mnemonicParsing="false" onAction="#updateVoorraadButtonClicked" prefHeight="25.0" prefWidth="125.0" text="Update voorraad" />
             <TextField fx:id="redenField" layoutX="405.0" layoutY="310.0" />
             <Label layoutX="361.0" layoutY="314.0" text="Reden:" />
